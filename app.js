@@ -119,7 +119,7 @@ app.get("/players/:playerId/matches", async (request, response) => {
   const fetchMatchDetailsResponse = await db.all(getMatchDetailsQuery);
   response.send(
     fetchMatchDetailsResponse.map((eachMatch) =>
-      convertMatchDetailsObject(eachMatch)
+      convertMatchDetailsObject(eachMatch) //do not use {} brackets in arrow function while pass thw parameter in the function 
     )
   );
 });
@@ -137,7 +137,7 @@ app.get("/matches/:matchId/players", async (request, response) => {
   const getPlayersOfMatchResponse = await db.all(getPlayersOfMatchQuery);
   response.send(
     getPlayersOfMatchResponse.map((eachPlayer) =>
-      convertPlayerDBObject(eachPlayer)
+      convertPlayerDBObject(eachPlayer) 
     )
   );
 });
